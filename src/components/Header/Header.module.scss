@@ -1,0 +1,16 @@
+.header {
+  &__wrapper{
+    margin: 0 auto;
+    padding: 0 1rem;
+    background-color: #646459;
+  }
+
+  &__header {
+    align-items: center;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: calc(10px + 2vmin);
+  }
+}
