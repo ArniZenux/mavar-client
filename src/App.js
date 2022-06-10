@@ -9,17 +9,11 @@ import { Verkefni } from './pages/verkefni';
 
 function App() {
   return (
-    <Layout header="">
+    <Layout footer="">
       <Switch>
-        <Route exact path="/">
-          <Index />
-        </Route>
-        <Route exact path="/tulkur">
-          <Tulkur />
-        </Route>
-        <Route exact path="/verkefni">
-          <Verkefni />
-        </Route>
+        <Route exact path="/"> <Index /> </Route>
+        <Route exact path="/tulkur"> <Tulkur /> </Route>
+        <Route exact path="/verkefni"> <Verkefni /> </Route>
       </Switch>
     </Layout>
   );

@@ -5,7 +5,7 @@ import LL from './Layout.module.scss';
 
 export function Layout({ children }) {
   return (
-    <div>
+    <div >
     <Header />
 
     <main className={LL.layout__main}>
