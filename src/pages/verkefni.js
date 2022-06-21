@@ -1,7 +1,7 @@
-import { VerkefniEvent } from '../components/Verkefni/Verkefni';
+import { VerkefniNewEvent } from '../components/Verkefni/addNewVerkefni';
 
 export function Verkefni(){
   return(
-    <VerkefniEvent />
+    <VerkefniNewEvent />
   )
 }
