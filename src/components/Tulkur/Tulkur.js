@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export function TulkurEvent() {
   return (
     <div className={TT.tulkur__wrapper}>
-      <p className={TT.Tulkur__p}> Táknmálstúlkur  </p>
+      <p className={TT.tulkur__p}> Táknmálstúlkur  </p>
       <table class="table table-hover">
         <thead>
           <tr>

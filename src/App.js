@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import './utils/CSS/Bootstrap.css';
 import './utils/CSS/App.css';
 
-
 import { Layout } from './components/Layout/Layout';
 import { Index } from './pages/home';
 
@@ -36,8 +35,6 @@ function App() {
         <Route exact path="/updateverkefni"> <Verkefniupdate /> </Route>
         <Route exact path="/updatePageVerkefni"> <VerkefniUpdatepage /> </Route>
         <Route exact path="/deleteverkefni"> <Verkefnidelete /> </Route>
-       
-       
        
       </Switch>
     </Layout>

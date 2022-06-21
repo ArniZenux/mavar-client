@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 export function VerkefniDeleteEvent() {
   return (
     <div className={VV.verkefni__wrapper}>
+      
       <p className={VV.verkefni__p}> Eyða verkefni </p>
 
       <table class="table table-hover">

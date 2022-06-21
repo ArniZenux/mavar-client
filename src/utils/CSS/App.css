@@ -58,19 +58,19 @@ ul.main-menu>li.menu-item:first-child {
   margin-left: 0;
 }
 .menu-item {
-  line-height: 23px;
+  line-height: 13px;
 }
 li {
   list-style-type: none;
 }
 .menu-item a {
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 15px;
   position: relative;
-  display: block;
-  color: #545050;
-  margin: 27px 10px;
+  display: inline-block;
+  color: black;
+  margin: 11px 10px;
   text-decoration: none;
   cursor: pointer;
 }
@@ -104,7 +104,7 @@ li {
 .header__middle__menus span.text {
   position: absolute;
   right: 177px;
-  bottom: 10px;
+  bottom: 5px;
   font-size: 11px;
   color: #ff1800;
 }
@@ -114,16 +114,16 @@ li {
 .sub__menus__arrows svg, .sub__menus__arrows__full svg{
   padding-top: 0px;
   position: absolute;
-  top: 13px;
+  top: 1px;
+  right: -20px;
 }
 .sub__menus {
   position: absolute;
   display: none;
   background: white;
   border: 1px solid lavender;
-  width: 227px;
-  left: -17px;
-  padding: 2px 0 0 0;
+  width: 200px;
+  padding: 1px 0 0 0;
   z-index: 1000;
   box-shadow: 0 10px 12px rgb(22 33 39 / 25%);
 }
@@ -142,8 +142,8 @@ li {
   }
 }
 .menu-item .sub__menus  a {
-  padding: 7px 0 0px 0;
-  margin: 7px 27px;
+  padding: 1px 0 0px 0;
+  margin: 12px 10px;
 }
 .menu-item:hover > a{
   color: #07a8ff !important;

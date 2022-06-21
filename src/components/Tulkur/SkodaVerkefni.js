@@ -3,7 +3,7 @@ import TT from './Tulkur.module.scss';
 export function TulkurSkoda() {
   return (
     <div className={TT.tulkur__wrapper}>
-      <p className={TT.Tulkur__p}> Táknmálstúlkur  </p>
+      <p className={TT.tulkur__p}> Skoða verkefnalisti túlka  </p>
 
       <table class="table table-hover">
         <thead>

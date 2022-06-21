@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { FiChevronDown } from "react-icons/fi";
-//import App from '../../App';
-//import '../../utils/CSS/dropDown.css';
 import HH from './Header.module.scss';
 
 export function Header() {
@@ -43,7 +41,7 @@ export function Header() {
       <div className="row">
         <header className={HH.header__header}>
             <div className={HH.header__left}>
-              <h3>Mávar - túlkaþjónusta</h3>
+              <h4>Mávar - túlkaþjónusta</h4>
             </div>
             <div className={HH.header__right}>
                 <ul className={boxClass.join(' ')}>
@@ -53,12 +51,12 @@ export function Header() {
                   <li onClick={toggleSubmenu} className="menu-item sub__menus__arrows" > <Link to="#"> Túlkur <FiChevronDown /> </Link>
                       <ul className={boxClassSubMenu.join(' ')} > 
                         <li className={HH.header__font} ><NavLink onClick={toggleClass} activeClassName='is-active' to={`/tulkur`}> Túlkur </NavLink> </li>
-                        <li className={HH.header__font} ><NavLink onClick={toggleClass} activeClassName='is-active' to={`/tulkurproject`}> Verkefnalisti túlka </NavLink> </li>
+                        <li className={HH.header__font} ><NavLink onClick={toggleClass} activeClassName='is-active' to={`/tulkurproject`}> Verkefnalisti </NavLink> </li>
                       </ul>
                   </li>
                   <li onClick={toggleSubmenu} className="menu-item sub__menus__arrows" > <Link to="#"> Verkefni <FiChevronDown /> </Link>
                     <ul className={boxClassSubMenu.join(' ')} > 
-                      <li><NavLink onClick={toggleClass} activeClassName='is-active' to={`/verkefni`}> Bæta nýtt verkefni </NavLink> </li>
+                      <li><NavLink onClick={toggleClass} activeClassName='is-active' to={`/verkefni`}> Bæta verkefni </NavLink> </li>
                       <li><NavLink onClick={toggleClass} activeClassName='is-active' to={`/updateverkefni`}> Breyta verkefni </NavLink> </li>
                       <li><NavLink onClick={toggleClass} activeClassName='is-active' to={`/deleteverkefni`}> Eyða verkefni </NavLink> </li>
                     </ul>

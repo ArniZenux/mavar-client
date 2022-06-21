@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 export function VerkefniUpdateEvent() {
   return (
     <div className={VV.verkefni__wrapper}>
+      
       <p className={VV.verkefni__p}> Breyta verkefni </p>
     
       <table class="table table-hover">

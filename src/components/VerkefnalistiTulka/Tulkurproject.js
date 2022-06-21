@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export function Tproject() {
   return (
     <div className={TT.tulkur__wrapper}>
-      <p className={TT.Tulkur__p}> Verkefnalisti túlka </p>
+      <p className={TT.tulkur__p}> Verkefnalisti túlka </p>
       <table class="table table-hover">
         <thead>
           <tr>
