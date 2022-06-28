@@ -18,7 +18,11 @@ import { Verkefniupdate } from './pages/updateVerkefni';
 import { VerkefniUpdatepage } from './pages/updatePageVerkefni';
 import { Verkefnidelete } from './pages/deleteVerkefni';
 
+import { NotFound } from './pages/404';
+      //<Route exact path="/tulkur/tulkurskoda" > <SkodaVerkTulkur /> </Route>
+        
 function App() {
+  
   return (
     <Layout footer="">
       <Switch>
@@ -28,14 +32,20 @@ function App() {
         <Route exact path="/tulkurproject"> <ProjectTulkur /> </Route>
         <Route exact path="/tulkurnew"> <NewTulkur /> </Route>
         <Route exact path="/tulkurupdate"> <UpdateTulkur /> </Route>
-        <Route exact path="/tulkurskoda"> <SkodaVerkTulkur /> </Route>
+        
+        <Route exact path="/tulkur/tulkurskoda/:id" children={<SkodaVerkTulkur />} />
+
         <Route exact path="/skiptatulk"> <ChangeTulkur /> </Route>
        
         <Route exact path="/verkefni"> <Verkefni /> </Route>
         <Route exact path="/updateverkefni"> <Verkefniupdate /> </Route>
         <Route exact path="/updatePageVerkefni"> <VerkefniUpdatepage /> </Route>
         <Route exact path="/deleteverkefni"> <Verkefnidelete /> </Route>
-       
+        
+        <Route path="*">
+          <NotFound />
+        </Route>
+        
       </Switch>
     </Layout>
   );
