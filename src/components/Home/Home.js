@@ -74,7 +74,7 @@ export function Home() {
   return(
     <div className={HH.home__wrapper}>
       <p className={HH.home__p}> Verkefnalisti táknmálstúlka </p>
-      <table class="table table-hover">
+      <table className="table table-hover">
         <thead>
           <tr>
             <th>Heiti</th>

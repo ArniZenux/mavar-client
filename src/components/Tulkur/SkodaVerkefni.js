@@ -1,5 +1,4 @@
 import React, { useEffect, useState  } from 'react';
-import { NavLink } from 'react-router-dom';
 import TT from './Tulkur.module.scss';
 
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -77,7 +76,7 @@ export function TulkurSkoda(  { id }  ) {
     <div className={TT.tulkur__wrapper}>
       <p className={TT.tulkur__p}> Verkefnalisti túlka </p>
 
-      <table class="table table-hover">
+      <table className="table table-hover">
         <thead>
           <tr>
             <th>Heiti</th>

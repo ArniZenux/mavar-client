@@ -1,5 +1,4 @@
 import React, { useEffect, useState  } from 'react';
-import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import TT from './Troject.module.scss';
 
@@ -76,7 +75,7 @@ export function Tproject() {
   return (
     <div className={TT.tulkur__wrapper}>
       <p className={TT.tulkur__p}> Verkefnalisti túlka </p>
-      <table class="table table-hover">
+      <table className="table table-hover">
         <thead>
           <tr>
             <th>Nafn</th>

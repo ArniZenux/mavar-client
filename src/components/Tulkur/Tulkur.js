@@ -14,13 +14,7 @@ export function TulkurEvent() {
   const [APIData, setData] = useState([]);
 
   useEffect(() => {
-    /*axios.get(apiUrl + `/tulkur`)
-      .then((response) => {
-        setData(response.data);
-      });
-    */
-
-      async function fetchData(){
+    async function fetchData(){
       setLoading(true); 
       setError(null); 
 
@@ -80,7 +74,7 @@ export function TulkurEvent() {
   return (
     <div className={TT.tulkur__wrapper}>
       <p className={TT.tulkur__p}> Táknmálstúlkur  </p>
-      <table class="table table-hover">
+      <table className="table table-hover">
         <thead>
           <tr>
             <th>Nafn</th>

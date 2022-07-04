@@ -77,7 +77,7 @@ export function VerkefniUpdateEvent() {
       
       <p className={VV.verkefni__p}> Breyta verkefni </p>
     
-      <table class="table table-hover">
+      <table className="table table-hover">
         <thead>
           <tr>
             <th>Heiti</th>

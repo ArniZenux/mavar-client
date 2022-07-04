@@ -78,7 +78,7 @@ export function VerkefniDeleteEvent() {
       
       <p className={VV.verkefni__p}> Eyða verkefni </p>
 
-      <table class="table table-hover">
+      <table className="table table-hover">
         <thead>
           <tr>
             <th>Heiti</th>
