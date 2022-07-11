@@ -80,7 +80,7 @@ export function TulkurEvent() {
             <th>Nafn</th>
             <th>Sími</th>
             <th>Netfang</th>
-            <th><NavLink exact activeClassName='is-active' to={`/tulkurnew`}> Bæta nýr túlk </NavLink></th>
+            <th><NavLink exact activeClassName='is-active' to={`/tulkurnew`}> Skrá nýr túlk </NavLink></th>
           </tr>
         </thead>
         <tbody>

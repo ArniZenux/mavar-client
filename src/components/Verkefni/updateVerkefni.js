@@ -1,5 +1,5 @@
 import React, { useEffect, useState  } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import VV from './Verkefni.module.scss';
 
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -10,12 +10,6 @@ export function VerkefniUpdateEvent() {
   const [APIData, setData] = useState([]);
 
   useEffect(() => {
-    /*axios.get(apiUrl + `/tulkur`)
-      .then((response) => {
-        setData(response.data);
-      });
-    */
-
       async function fetchData(){
       setLoading(true); 
       setError(null); 
@@ -87,7 +81,8 @@ export function VerkefniUpdateEvent() {
             <th>Endir</th>
             <th>Vettvangur</th>
             <th>Túlkur</th>
-            <th><NavLink exact activeClassName='is-active' to={`/verkefni`}> Bæta nýtt verkefni </NavLink></th>
+            <th>Breyta</th>
+            <th>Skipta túlk</th>
           </tr>
         </thead>
         <tbody>
@@ -101,9 +96,8 @@ export function VerkefniUpdateEvent() {
                 <td> { data.timi_endir } </td>
                 <td> { data.vettvangur } </td>
                 <td> { data.nafn } </td>
-                <td><NavLink exact activeClassName='is-active' to={`/updatePageVerkefni`}> Uppfæra </NavLink> 
-              | <NavLink exact activeClassName='is-active' to={`/skiptaTulk`}> Skipta túlk </NavLink> 
-                </td>
+                <td><Link to={`/updatePageVerkefni/`  + data.id}> Uppfæra </Link></td> 
+                <td><Link to={`/skiptaTulk/` + data.id}> Skipta </Link></td>
               </tr>
               )
             })

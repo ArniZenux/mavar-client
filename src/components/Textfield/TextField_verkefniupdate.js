@@ -1,7 +1,7 @@
 import TT from './TextField.module.scss';
 //import { NavLink } from 'react-router-dom';
 
-export function TfupdateVerkefni() {
+export function TfupdateVerkefni( { id } ) {
   return (
     <div className={TT.tulkur__wrapper}>
       

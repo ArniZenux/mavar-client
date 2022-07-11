@@ -23,7 +23,6 @@ export function Home() {
 
       try {
         const result = await fetch(apiUrl + `/project/byTulkur`); 
-        console.log(result);
         
         if(!result.ok){
           throw new Error('Ekki ok');

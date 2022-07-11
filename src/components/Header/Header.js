@@ -50,12 +50,14 @@ export function Header() {
                   </li>
                   <li onClick={toggleSubmenu} className="menu-item sub__menus__arrows" > <Link to="#"> Túlkur <FiChevronDown /> </Link>
                       <ul className={boxClassSubMenu.join(' ')} > 
-                        <li className={HH.header__font} ><NavLink onClick={toggleClass} activeClassName='is-active' to={`/tulkur`}> Túlkur </NavLink> </li>
-                        <li className={HH.header__font} ><NavLink onClick={toggleClass} activeClassName='is-active' to={`/tulkurproject`}> Verkefnalisti </NavLink> </li>
+                        <li className={HH.header__font} ><NavLink onClick={toggleClass} activeClassName='is-active' to={`/tulkur`}> Lista túlka </NavLink> </li>
+                        <li className={HH.header__font} ><NavLink onClick={toggleClass} activeClassName='is-active' to={`/tulkurnew`}>Skrá nýr túlk </NavLink> </li>
+                        <li className={HH.header__font} ><NavLink onClick={toggleClass} activeClassName='is-active' to={`/tulkurdelete`}> Eyða túlk </NavLink> </li>
                       </ul>
                   </li>
                   <li onClick={toggleSubmenu} className="menu-item sub__menus__arrows" > <Link to="#"> Verkefni <FiChevronDown /> </Link>
                     <ul className={boxClassSubMenu.join(' ')} > 
+  	                  <li className={HH.header__font} ><NavLink onClick={toggleClass} activeClassName='is-active' to={`/tulkurproject`}> Verkefnalisti </NavLink> </li>
                       <li><NavLink onClick={toggleClass} activeClassName='is-active' to={`/verkefni`}> Bæta verkefni </NavLink> </li>
                       <li><NavLink onClick={toggleClass} activeClassName='is-active' to={`/updateverkefni`}> Breyta verkefni </NavLink> </li>
                       <li><NavLink onClick={toggleClass} activeClassName='is-active' to={`/deleteverkefni`}> Eyða verkefni </NavLink> </li>
