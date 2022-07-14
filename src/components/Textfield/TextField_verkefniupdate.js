@@ -66,7 +66,7 @@ export function TfupdateVerkefni( { id } ) {
 
       <form onSubmit={handleSubmit(onSubmit)}>
 
-        <div>
+        <div className={TT.tulkur__box}>
           <label htmlFor="formGroupExampleInput">Heiti</label>
           <input 
             {...register("heiti", {
@@ -83,7 +83,7 @@ export function TfupdateVerkefni( { id } ) {
           />
         </div>  
         
-        <div>
+        <div className={TT.tulkur__box}>
           <label htmlFor="formGroupExampleInput">Staður</label>
           <input 
             {...register("stadur", {
@@ -99,7 +99,7 @@ export function TfupdateVerkefni( { id } ) {
               placeholder="Staður" />
         </div>
           
-        <div>
+        <div className={TT.tulkur__box}>
           <label htmlFor="formGroupExampleInput">Dagur</label>
           <input 
             {...register("dagur", {
@@ -115,7 +115,7 @@ export function TfupdateVerkefni( { id } ) {
             placeholder="Dagur" />
         </div>
 
-        <div>
+        <div className={TT.tulkur__box}>
           <label htmlFor="formGroupExampleInput">Byrja</label>
           <input 
             {...register("byrja_timi", {
@@ -131,7 +131,7 @@ export function TfupdateVerkefni( { id } ) {
             placeholder="Byrja" />
         </div>
         
-        <div>
+        <div className={TT.tulkur__box}>
           <label htmlFor="formGroupExampleInput">Endir</label>
           <input 
             {...register("endir_timi", {
@@ -147,7 +147,7 @@ export function TfupdateVerkefni( { id } ) {
             placeholder="Endir" />
         </div>
 
-        <div>
+        <div className={TT.tulkur__box}>
           <label htmlFor="formGroupExampleInput">Vettvangur</label>
           <select 
             className="form-control" 

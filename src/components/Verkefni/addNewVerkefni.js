@@ -77,7 +77,7 @@ export function VerkefniNewEvent() {
 
       <form onSubmit={handleSubmit(onSubmit)}>
 
-        <div>
+        <div className={VV.verkefni__box}>
           <label htmlFor="formGroupExampleInput">Heiti</label>
           <input 
             {...register("nameproject", {
@@ -95,7 +95,7 @@ export function VerkefniNewEvent() {
             { errors?.nameproject?.type === "minLength" && ( <p>Lágmarksorð er 7</p> )}
         </div>  
 
-        <div>
+        <div className={VV.verkefni__box}>
           <label htmlFor="formGroupExampleInput">Staður</label>
           <input 
             {...register("place", {
@@ -113,7 +113,7 @@ export function VerkefniNewEvent() {
             { errors?.place?.type === "minLength" && ( <p>Lágmarksorð er 7</p> )}
         </div>
           
-        <div>
+        <div className={VV.verkefni__box}>
           <label htmlFor="formGroupExampleInput">Dagur</label>
           <input 
             {...register("day", {
@@ -131,7 +131,7 @@ export function VerkefniNewEvent() {
             { errors?.day?.type === "minLength" && ( <p>Lágmarksorð er 7</p> )}
         </div>
 
-        <div>
+        <div className={VV.verkefni__box}>
           <label htmlFor="formGroupExampleInput">Byrja</label>
           <input 
             {...register("start", {
@@ -151,7 +151,7 @@ export function VerkefniNewEvent() {
             { errors?.start?.type === "maxLength" && ( <p>Hámarksorð er 5</p> )}
         </div>
 
-        <div>
+        <div className={VV.verkefni__box}>
           <label htmlFor="formGroupExampleInput">Endir</label>
           <input 
             {...register("last", {
@@ -171,7 +171,7 @@ export function VerkefniNewEvent() {
             { errors?.last?.type === "maxLength" && ( <p>Hámarksorð er 5</p> )}
         </div>
 
-        <div>
+        <div className={VV.verkefni__box}>
           <label htmlFor="formGroupExampleInput">Vettvangur</label>
           <select className="form-control" 
             value={vettvangur} 

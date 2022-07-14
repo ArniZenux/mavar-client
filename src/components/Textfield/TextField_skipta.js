@@ -66,7 +66,7 @@ export function TulkurSkipta( { id } ) {
 
      <form onSubmit={handleSubmit(onSubmit)}>
 
-      <div>
+      <div className={TT.tulkur__box}>
         <label htmlFor="formGroupExampleInput">Nafn túlks</label>
         <input 
            {...register("nafn", {
