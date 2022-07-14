@@ -29,7 +29,6 @@ export function TfnewTulkur() {
       body: JSON.stringify(data)
     };
     fetch(apiUrl + '/tulkur/adduser', requestOptions);
-    
   }
   
   return (
@@ -38,7 +37,7 @@ export function TfnewTulkur() {
       
       <form onSubmit={handleSubmit(onSubmit)}>
 
-      <div>
+      <div className={TT.tulkur__box}>
         <label htmlFor="nafn">Nafn</label>
         <input 
           {...register("firstname", {
@@ -56,7 +55,7 @@ export function TfnewTulkur() {
         { errors?.firstname?.type === "minLength" && ( <p>Lágmarksorð er 3</p> )}
       </div>
           
-      <div>
+      <div className={TT.tulkur__box}>
         <label htmlFor="simanumer">Símanúmer</label>
         <input 
          {...register("phonenr", {
@@ -76,7 +75,7 @@ export function TfnewTulkur() {
         { errors?.phonenr?.type === "pattern" && ( <p>Tölurótið</p> )}   
       </div>
 
-      <div>
+      <div className={TT.tulkur__box}>
         <label htmlFor="email">Netfang</label>
         <input
          {...register("email", {
@@ -101,4 +100,4 @@ export function TfnewTulkur() {
 
     </div>
   )
-}
+} 

@@ -30,11 +30,19 @@ export function VerkefniNewEvent() {
     const data =  { nameproject, place, day, start, last, vettvangur, tulkur };
     console.log(data); 
     
+    /*try{ 
+
+    }
+    catch(e){
+
+    }*/
+
     const requestOptions = {
       method: 'POST',
       headers: {"Content-Type": "application/json" },
       body: JSON.stringify(data)
     };
+    
     fetch(apiUrl + '/project/addproject', requestOptions);
   }
   

@@ -6,6 +6,5 @@ export function SkodaVerkTulkur(){
 
   return(
     <TulkurSkoda id={id} />
-    //<TulkurSkoda />
    )
 }

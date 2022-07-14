@@ -1,5 +1,5 @@
 import React, { useEffect, useState  } from 'react';
-import { NavLink } from 'react-router-dom';
+//import { NavLink } from 'react-router-dom';
 import VV from './Verkefni.module.scss';
 
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -10,12 +10,6 @@ export function VerkefniDeleteEvent() {
   const [APIData, setData] = useState([]);
 
   useEffect(() => {
-    /*axios.get(apiUrl + `/tulkur`)
-      .then((response) => {
-        setData(response.data);
-      });
-    */
-
       async function fetchData(){
       setLoading(true); 
       setError(null); 
@@ -44,7 +38,7 @@ export function VerkefniDeleteEvent() {
    
     fetchData(); 
   }, []);
-
+  
   if(error){
     return (
      <div className={VV.verkefni__wrapper}>
@@ -72,6 +66,9 @@ export function VerkefniDeleteEvent() {
     )
   }
 
+  const eydaFall = e => {
+    console.log("að eyða verkefni");
+  }
 
   return (
     <div className={VV.verkefni__wrapper}>
@@ -102,7 +99,7 @@ export function VerkefniDeleteEvent() {
                 <td> { data.timi_endir } </td>
                 <td> { data.vettvangur } </td>
                 <td> { data.nafn } </td>
-                <td><NavLink exact activeClassName='is-active' to={`/`}> Eyða </NavLink></td>
+                <td> <button className='btn btn-sm btn-danger' onClick={() => eydaFall()}> Eyða </button></td>
               </tr>
               )
             })

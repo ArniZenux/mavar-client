@@ -1,8 +1,5 @@
-import axios from 'axios';
 import React, { useEffect, useState  } from 'react';
-//import { Link } from 'react-router-dom';
-//import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import TT from './Tulkur.module.scss';
 
@@ -11,7 +8,7 @@ const apiUrl = process.env.REACT_APP_API_URL;
 export function TulkurEvent() {
   const [loading, setLoading] = useState(false); 
   const [error, setError] = useState(null);
-  const [APIData, setData] = useState([]);
+  const [APIData, setData2] = useState([]);
 
   useEffect(() => {
     async function fetchData(){
@@ -37,7 +34,7 @@ export function TulkurEvent() {
       finally{
         setLoading(false); 
       }
-      setData(json); 
+      setData2(json); 
      }
    
     fetchData(); 
@@ -71,6 +68,16 @@ export function TulkurEvent() {
     )
   }
 
+  const setData = (data) => {
+    let { id, nafn, simi, netfang } = data; 
+    localStorage.setItem('id', id);
+    localStorage.setItem('firstname', nafn);
+    localStorage.setItem('phonenr', simi);
+    localStorage.setItem('email',netfang);
+
+    console.log(data); 
+  }
+
   return (
     <div className={TT.tulkur__wrapper}>
       <p className={TT.tulkur__p}> Táknmálstúlkur  </p>
@@ -80,7 +87,8 @@ export function TulkurEvent() {
             <th>Nafn</th>
             <th>Sími</th>
             <th>Netfang</th>
-            <th><NavLink exact activeClassName='is-active' to={`/tulkurnew`}> Skrá nýr túlk </NavLink></th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -91,14 +99,14 @@ export function TulkurEvent() {
                 <td> { data.nafn } </td>
                 <td> { data.simi } </td>
                 <td> { data.netfang } </td>
-                <td><NavLink exact activeClassName='is-active' to={`/tulkurupdate`}> Uppfæra </NavLink></td>
+                <td> <Link className='btn btn-sm btn-warning' to={`/tulkurupdate/` + data.id } onClick={() => setData(data)}> Uppfæra </Link> </td>
+                <td> <button className='btn btn-sm btn-danger'> Eyða </button> </td>
               </tr>
               )
             })
           }
         </tbody>
       </table>
-      
     </div>
   )
 }

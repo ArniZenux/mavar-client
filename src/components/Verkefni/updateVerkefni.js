@@ -7,7 +7,28 @@ const apiUrl = process.env.REACT_APP_API_URL;
 export function VerkefniUpdateEvent() {
   const [loading, setLoading] = useState(false); 
   const [error, setError] = useState(null);
-  const [APIData, setData] = useState([]);
+  const [APIData, setData2] = useState([]);
+
+  const setData = (data) => {
+    let { idverkefni, heiti, stadur, dagur, byrja_timi, endir_timi, vettvangur } = data; 
+    localStorage.setItem('idverkefni', idverkefni);
+    localStorage.setItem('heiti', heiti);
+    localStorage.setItem('stadur', stadur);
+    localStorage.setItem('dagur',dagur);
+    localStorage.setItem('byrja_timi',byrja_timi);
+    localStorage.setItem('endir_timi',endir_timi);
+    localStorage.setItem('vettvangur',vettvangur);
+
+    console.log(data); 
+  }
+
+  const setTulkur = (data) => {
+    let { idverkefni, nafn } = data;
+    localStorage.setItem('idverkefni', idverkefni);
+    localStorage.setItem('nafn', nafn); 
+    
+    console.log(data); 
+  }
 
   useEffect(() => {
       async function fetchData(){
@@ -33,7 +54,7 @@ export function VerkefniUpdateEvent() {
       finally{
         setLoading(false); 
       }
-      setData(json); 
+      setData2(json); 
      }
    
     fetchData(); 
@@ -96,8 +117,8 @@ export function VerkefniUpdateEvent() {
                 <td> { data.timi_endir } </td>
                 <td> { data.vettvangur } </td>
                 <td> { data.nafn } </td>
-                <td><Link to={`/updatePageVerkefni/`  + data.id}> Uppfæra </Link></td> 
-                <td><Link to={`/skiptaTulk/` + data.id}> Skipta </Link></td>
+                <td><Link className='btn btn-sm btn-warning' to={`/updatePageVerkefni/`  + data.id} onClick={() => setData(data)}> Uppfæra </Link></td> 
+                <td><Link className='btn btn-sm btn-warning' to={`/skiptaTulk/` + data.id} onClick={() => setTulkur(data)}> Skipta </Link></td>
               </tr>
               )
             })
