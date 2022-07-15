@@ -1,5 +1,5 @@
 import React, { useEffect, useState  } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import TT from './Tulkur.module.scss';
 
@@ -74,8 +74,6 @@ export function TulkurEvent() {
     localStorage.setItem('firstname', nafn);
     localStorage.setItem('phonenr', simi);
     localStorage.setItem('email',netfang);
-
-    console.log(data); 
   }
 
   return (
@@ -88,7 +86,6 @@ export function TulkurEvent() {
             <th>Sími</th>
             <th>Netfang</th>
             <th></th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -100,11 +97,12 @@ export function TulkurEvent() {
                 <td> { data.simi } </td>
                 <td> { data.netfang } </td>
                 <td> <Link className='btn btn-sm btn-warning' to={`/tulkurupdate/` + data.id } onClick={() => setData(data)}> Uppfæra </Link> </td>
-                <td> <button className='btn btn-sm btn-danger'> Eyða </button> </td>
+                
               </tr>
               )
             })
           }
+ 
         </tbody>
       </table>
     </div>

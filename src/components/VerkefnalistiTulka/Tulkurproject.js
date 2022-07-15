@@ -10,12 +10,6 @@ export function Tproject() {
   const [APIData, setData] = useState([]);
 
   useEffect(() => {
-    /*axios.get(apiUrl + `/tulkur`)
-      .then((response) => {
-        setData(response.data);
-      });
-    */
-
       async function fetchData(){
       setLoading(true); 
       setError(null); 
@@ -97,12 +91,8 @@ export function Tproject() {
               )
             })
           }
-
         </tbody>
       </table>
     </div>
   )
-      //
-
-
 }

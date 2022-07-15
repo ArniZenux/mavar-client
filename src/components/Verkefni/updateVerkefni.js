@@ -1,5 +1,5 @@
 import React, { useEffect, useState  } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import VV from './Verkefni.module.scss';
 
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -10,7 +10,13 @@ export function VerkefniUpdateEvent() {
   const [APIData, setData2] = useState([]);
 
   const setData = (data) => {
-    let { idverkefni, heiti, stadur, dagur, byrja_timi, endir_timi, vettvangur } = data; 
+    let { idverkefni, 
+          heiti, 
+          stadur, 
+          dagur, 
+          byrja_timi, 
+          endir_timi, 
+          vettvangur } = data; 
     localStorage.setItem('idverkefni', idverkefni);
     localStorage.setItem('heiti', heiti);
     localStorage.setItem('stadur', stadur);
@@ -18,16 +24,12 @@ export function VerkefniUpdateEvent() {
     localStorage.setItem('byrja_timi',byrja_timi);
     localStorage.setItem('endir_timi',endir_timi);
     localStorage.setItem('vettvangur',vettvangur);
-
-    console.log(data); 
   }
 
   const setTulkur = (data) => {
     let { idverkefni, nafn } = data;
     localStorage.setItem('idverkefni', idverkefni);
     localStorage.setItem('nafn', nafn); 
-    
-    console.log(data); 
   }
 
   useEffect(() => {

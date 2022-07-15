@@ -39,8 +39,9 @@ function App() {
         <Route exact path="/verkefni"> <Verkefni /> </Route>
         <Route exact path="/updateverkefni"> <Verkefniupdate /> </Route>
         <Route exact path="/updatePageVerkefni/:id" children={ <VerkefniUpdatepage /> } />
-        <Route exact path="/deleteverkefni"> <Verkefnidelete /> </Route>
-        
+        <Route exact path="/deleteverkefni/"> <Verkefnidelete /> </Route>
+        <Route exact path="/project/delverkefniprofa" /> 
+                
         <Route path="*">
           <NotFound />
         </Route>

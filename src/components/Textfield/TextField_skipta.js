@@ -42,12 +42,6 @@ export function TulkurSkipta( { id } ) {
 
   const onSubmit = e => {
     const data = { idverkefni, tulkur }
-
-    /*try{
-    }
-    catch(e){
-    }*/
-
     const requestOptions = {
       method: 'PUT',
       headers: {"Content-Type": "application/json" },
@@ -82,6 +76,8 @@ export function TulkurSkipta( { id } ) {
             placeholder="Túlkur" 
           />
       </div>  
+      { errors?.nafn?.type === "required" && ( <p>Má ekki tómur strengur</p> )}
+      { errors?.nafn?.type === "minLength" && ( <p>Lágmarksorð er 3</p> )}
 
       <div className="form-group">
         <label htmlFor="exampleFormControlSelect1">Táknmálstúlkur</label>

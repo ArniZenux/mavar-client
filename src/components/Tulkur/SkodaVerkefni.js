@@ -17,12 +17,8 @@ export function TulkurSkoda(  { id }  ) {
       const apiUrlId = apiUrl + '/tulkur/tulkurskoda/';
       const url = new URL(id, apiUrlId); 
 
-     // console.log("asdf");
-     // console.log(url); 
-
       try {
         const result = await fetch(url); 
-       // console.log(result);
         
         if(!result.ok){
           throw new Error('Ekki ok');
@@ -38,8 +34,6 @@ export function TulkurSkoda(  { id }  ) {
         setLoading(false); 
       }
       setData(json);
-      //console.log(json); 
-
      }
    
     fetchData(); 
@@ -107,7 +101,6 @@ export function TulkurSkoda(  { id }  ) {
 
         </tbody>
       </table>
-      
     </div>
   )
 }
