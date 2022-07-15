@@ -1,5 +1,4 @@
-//import { func } from 'prop-types';
-import React, {Redirect, useState, useEffect } from 'react';
+import React, {useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import TT from './TextField.module.scss';
 
@@ -30,23 +29,13 @@ export function TfupdateTulkur() {
     const data =  {id, firstname, phonenr, email};
     console.log(data); 
 
-    /*try{
-
-    }
-    catch(e){
-
-    }*/
-
     const requestOptions = {
       method: 'PUT',
       headers: {"Content-Type": "application/json" },
       body: JSON.stringify(data)
     };
 
-    //console.log(apiUrl + '/tulkur/updateuser/' + id);
     fetch(apiUrl + '/tulkur/updateuser/' + id, requestOptions);
-    
-    //<Redirect to='/' />
    
   }
    

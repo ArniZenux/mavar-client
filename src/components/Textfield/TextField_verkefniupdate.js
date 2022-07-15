@@ -1,4 +1,4 @@
-import React, {Redirect, useState, useEffect } from 'react';
+import React, {useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import TT from './TextField.module.scss';
 
@@ -44,19 +44,12 @@ export function TfupdateVerkefni( { id } ) {
               };
     console.log(data); 
 
-    /*try{
-    }
-    catch(e){
-    }
-    */
     const requestOptions = {
       method: 'PUT',
       headers: {"Content-Type": "application/json" },
       body: JSON.stringify(data)
     };
-    //console.log(apiUrl + '/tulkur/updateuser/' + id);
     fetch(apiUrl + '/project/updateproject/' + id, requestOptions);
-    //<Redirect to='/' />
   }
  
    return (
@@ -82,6 +75,8 @@ export function TfupdateVerkefni( { id } ) {
               placeholder="Heiti verkefna" 
           />
         </div>  
+        { errors?.heiti?.type === "required" && ( <p>Má ekki tómur strengur</p> )}
+        { errors?.heiti?.type === "minLength" && ( <p>Lágmarksorð er 3</p> )}
         
         <div className={TT.tulkur__box}>
           <label htmlFor="formGroupExampleInput">Staður</label>
@@ -98,7 +93,9 @@ export function TfupdateVerkefni( { id } ) {
               onChange={e => setStadur(e.target.value)}  
               placeholder="Staður" />
         </div>
-          
+        { errors?.stadur?.type === "required" && ( <p>Má ekki tómur strengur</p> )}
+        { errors?.stadur?.type === "minLength" && ( <p>Lágmarksorð er 3</p> )}
+
         <div className={TT.tulkur__box}>
           <label htmlFor="formGroupExampleInput">Dagur</label>
           <input 
@@ -114,6 +111,8 @@ export function TfupdateVerkefni( { id } ) {
             name="dagur" 
             placeholder="Dagur" />
         </div>
+        { errors?.dagur?.type === "required" && ( <p>Má ekki tómur strengur</p> )}
+        { errors?.dagur?.type === "minLength" && ( <p>Lágmarksorð er 3</p> )}
 
         <div className={TT.tulkur__box}>
           <label htmlFor="formGroupExampleInput">Byrja</label>
@@ -130,7 +129,9 @@ export function TfupdateVerkefni( { id } ) {
             name="byrja_timi" 
             placeholder="Byrja" />
         </div>
-        
+        { errors?.byrja_timi?.type === "required" && ( <p>Má ekki tómur strengur</p> )}
+        { errors?.byrja_timi?.type === "minLength" && ( <p>Lágmarksorð er 3</p> )}
+
         <div className={TT.tulkur__box}>
           <label htmlFor="formGroupExampleInput">Endir</label>
           <input 
@@ -146,6 +147,8 @@ export function TfupdateVerkefni( { id } ) {
             onChange={e => setEndirTimi(e.target.value)}  
             placeholder="Endir" />
         </div>
+        { errors?.endir_timi?.type === "required" && ( <p>Má ekki tómur strengur</p> )}
+        { errors?.endir_timi?.type === "minLength" && ( <p>Lágmarksorð er 3</p> )}
 
         <div className={TT.tulkur__box}>
           <label htmlFor="formGroupExampleInput">Vettvangur</label>
