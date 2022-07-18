@@ -1,5 +1,6 @@
 import React, { useEffect, useState  } from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 
 import VV from './Verkefni.module.scss';
 
@@ -26,14 +27,25 @@ export function VerkefniNewEvent() {
 
   const { register, handleSubmit, formState: {errors} } = useForm(); 
   
-  const onSubmit = e => {
+  let success = true; 
+  let history = useHistory();
+
+  const onSubmit = async (e) => {
     const data =  { nameproject, place, day, start, last, vettvangur, tulkur };
     const requestOptions = {
       method: 'POST',
       headers: {"Content-Type": "application/json" },
       body: JSON.stringify(data)
     };
-    fetch(apiUrl + '/project/addproject', requestOptions);
+
+    success = await fetch(apiUrl + '/project/addproject', requestOptions);
+    
+    if(success){
+      history.push('/');
+    }
+    else {
+      console.log("Ekki virkur");
+    }
   }
   
   useEffect(() => {

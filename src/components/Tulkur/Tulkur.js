@@ -97,7 +97,6 @@ export function TulkurEvent() {
                 <td> { data.simi } </td>
                 <td> { data.netfang } </td>
                 <td> <Link className='btn btn-sm btn-warning' to={`/tulkurupdate/` + data.id } onClick={() => setData(data)}> Uppfæra </Link> </td>
-                
               </tr>
               )
             })

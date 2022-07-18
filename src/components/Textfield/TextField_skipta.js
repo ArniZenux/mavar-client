@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory} from 'react-router-dom';
 import TT from './TextField.module.scss';
 
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -7,13 +8,13 @@ const apiUrl = process.env.REACT_APP_API_URL;
 export function TulkurSkipta( { id } ) {
   const [idverkefni, setIdVerkefni] = useState(null);
   const [nafn, setNafn] = useState('')
-
   const [tulkur, setTulkur] = useState('');
   const [picktulkur, setPickTulkur] = useState([]);
-
   const onTulkurChange = e => setTulkur(e.target.value);
-
   const { register, handleSubmit, formState: {errors} } = useForm(); 
+
+  let history = useHistory();
+  let success = true; 
   
   useEffect( () => {
     setIdVerkefni(localStorage.getItem('idverkefni'));
@@ -40,17 +41,22 @@ export function TulkurSkipta( { id } ) {
     fetchData(); 
   }, []);
 
-  const onSubmit = e => {
+  const onSubmit = async (e) => {
     const data = { idverkefni, tulkur }
     const requestOptions = {
       method: 'PUT',
       headers: {"Content-Type": "application/json" },
       body: JSON.stringify(data)
     };
-
-    fetch(apiUrl + '/project/updatevinna/' + idverkefni, requestOptions);
-        
-    //<Redirect to='/' />
+    
+    success = await fetch(apiUrl + '/project/updatevinna/' + idverkefni, requestOptions);
+    
+    if(success){
+      history.push('/updateverkefni');
+    }
+    else{
+      console.log("Ekki virkur");
+    }
   }
 
   return (

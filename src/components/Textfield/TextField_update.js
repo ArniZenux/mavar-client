@@ -1,10 +1,13 @@
 import React, {useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory} from 'react-router-dom';
 import TT from './TextField.module.scss';
 
 const apiUrl = process.env.REACT_APP_API_URL;
+//const apiUrlUpdate = apiUrl + '/tulkur/updateuser/';
 
 export function TfupdateTulkur() {
+
   const [id, setId] = useState(null); 
   const [firstname, setFirstName] = useState('');
   const [phonenr, setPhoneNr] = useState('');
@@ -12,6 +15,9 @@ export function TfupdateTulkur() {
   
   const { register, handleSubmit, formState: {errors} } = useForm(); 
   
+  let history = useHistory(); 
+  let success = true; 
+
   useEffect( () => {
     setId(localStorage.getItem('id'));
     setFirstName(localStorage.getItem('firstname'));
@@ -20,23 +26,29 @@ export function TfupdateTulkur() {
     
   }, []);
 
-  const onSubmit = e => {
+  const onSubmit = async (e) => {
     console.log(id); 
     console.log(firstname); 
     console.log(phonenr); 
     console.log(email); 
-       
+        
     const data =  {id, firstname, phonenr, email};
     console.log(data); 
 
     const requestOptions = {
       method: 'PUT',
-      headers: {"Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     };
-
-    fetch(apiUrl + '/tulkur/updateuser/' + id, requestOptions);
-   
+    
+    success = await fetch(apiUrl + '/tulkur/updateuser/' + id, requestOptions);
+    
+    if(success){
+      history.push('/tulkur');
+    }
+    else {
+      console.log("virkar ekki");
+    }
   }
    
   return (
@@ -104,10 +116,10 @@ export function TfupdateTulkur() {
         { errors?.email?.type === "pattern" && ( <p>email strengur</p> )}   
       </div>  
 
-  
       <br/>
       
       <button className="btn btn-sm btn-success">Uppfæra</button>
+
 
       </form>
 

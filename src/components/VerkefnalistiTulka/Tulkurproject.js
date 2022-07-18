@@ -86,7 +86,7 @@ export function Tproject() {
                 <td> { data.nafn } </td>
                 <td> { data.simi } </td>
                 <td> { data.netfang } </td>
-                <td> <Link to={'/tulkur/tulkurskoda/' + data.id}> Skoda </Link> </td>
+                <td> <Link to={'/tulkur/tulkurskoda/' + data.id}> Skoða </Link> </td>
               </tr>
               )
             })

@@ -1,5 +1,6 @@
 import React, { useState  } from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 import TT from './TextField.module.scss';
 
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -8,14 +9,15 @@ export function TfnewTulkur() {
   const [firstname, setFirstName] = useState('');
   const [phonenr, setPhoneNr] = useState('');
   const [email, setEmail] = useState('');
- 
   const onFirstnameChange = e => setFirstName(e.target.value); 
   const onPhonenrChange = e => setPhoneNr(e.target.value); 
   const onEmailChange = e => setEmail(e.target.value);
-  
   const { register, handleSubmit, formState: {errors} } = useForm(); 
   
-  const onSubmit = e => {
+  let success = true; 
+  let history = useHistory(); 
+
+  const onSubmit = async (e) => {
     console.log(firstname); 
     console.log(phonenr); 
     console.log(email); 
@@ -28,7 +30,14 @@ export function TfnewTulkur() {
       headers: {"Content-Type": "application/json" },
       body: JSON.stringify(data)
     };
-    fetch(apiUrl + '/tulkur/adduser', requestOptions);
+    success = await fetch(apiUrl + '/tulkur/adduser', requestOptions);
+    
+    if(success){
+      history.push('/tulkur');
+    }
+    else{
+      console.log("Virkar ekki");
+    }
   }
   
   return (

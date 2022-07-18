@@ -1,4 +1,5 @@
 import React, { useEffect, useState  } from 'react';
+import { useHistory } from 'react-router-dom';
 import VV from './Verkefni.module.scss';
 
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -7,6 +8,9 @@ export function VerkefniDeleteEvent() {
   const [loading, setLoading] = useState(false); 
   const [error, setError] = useState(null);
   const [APIData, setData] = useState([]);
+  
+  let success = true;
+  let history = useHistory(); 
 
   useEffect(() => {
       async function fetchData(){
@@ -65,14 +69,21 @@ export function VerkefniDeleteEvent() {
     )
   }
 
-  const eydaFall = (idverkefni) => {
+  const eydaFall = async (idverkefni) => {
     const data =  { idverkefni };
     const requestOptions = {
       method: 'DELETE',
       headers: {"Content-Type": "application/json" },
       body: JSON.stringify(data)
     };
-    fetch(apiUrl + '/project/delverkefniprofa/', requestOptions);
+
+    success = await fetch(apiUrl + '/project/delverkefniprofa/', requestOptions);
+    if(success){
+      history.push('/');
+    }
+    else{
+      console.log("Ekki virkur");
+    }
   }
 
   return (

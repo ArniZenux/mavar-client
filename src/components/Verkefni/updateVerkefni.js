@@ -115,8 +115,8 @@ export function VerkefniUpdateEvent() {
                 <td> { data.heiti } </td>
                 <td> { data.stadur} </td>
                 <td> { data.dagur } </td>
-                <td> { data.timi_byrja } </td>
-                <td> { data.timi_endir } </td>
+                <td> { data.byrja_timi } </td>
+                <td> { data.endir_timi } </td>
                 <td> { data.vettvangur } </td>
                 <td> { data.nafn } </td>
                 <td><Link className='btn btn-sm btn-warning' to={`/updatePageVerkefni/`  + data.id} onClick={() => setData(data)}> Uppfæra </Link></td> 

@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 import TT from './TextField.module.scss';
 
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -12,9 +13,11 @@ export function TfupdateVerkefni( { id } ) {
   const [byrja_timi, setByrjaTimi] = useState('');
   const [endir_timi, setEndirTimi] = useState('');
   const [vettvangur, setVettvangur] = useState('');
-  
   const { register, handleSubmit, formState: {errors} } = useForm(); 
   
+  let success = true; 
+  let history = useHistory();
+
   useEffect( () => {
     setIdVerkefni(localStorage.getItem('idverkefni'));
     setHeiti(localStorage.getItem('heiti'));
@@ -25,7 +28,7 @@ export function TfupdateVerkefni( { id } ) {
     setVettvangur(localStorage.getItem('vettvangur'));
   }, []);
 
-  const onSubmit = e => {
+  const onSubmit = async (e) => {
     console.log(idverkefni); 
     console.log(heiti); 
     console.log(stadur); 
@@ -49,7 +52,15 @@ export function TfupdateVerkefni( { id } ) {
       headers: {"Content-Type": "application/json" },
       body: JSON.stringify(data)
     };
-    fetch(apiUrl + '/project/updateproject/' + id, requestOptions);
+
+    success = await fetch(apiUrl + '/project/updateproject/' + id, requestOptions);
+    
+    if(success){
+      history.push('/updateverkefni');
+    }
+    else{
+      console.log("Ekki virkur");
+    }
   }
  
    return (
