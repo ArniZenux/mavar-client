@@ -1,8 +1,7 @@
-//import { Home } from '../components/Login';
+import { Login } from '../components/LoginForm/Login';
 
 export function Index(){
   return(
-    <p>Login Form</p>
-    //  <Home/>
+    <Login />
   )
 }

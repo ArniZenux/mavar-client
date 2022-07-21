@@ -5,6 +5,7 @@ import './utils/CSS/App.css';
 
 import { Layout } from './components/Layout/Layout';
 import { Index } from './pages/home';
+//import { Index } from './pages/login';
 
 import { Tulkur } from './pages/tulkur';
 import { NewTulkur } from './pages/newTulkur';
