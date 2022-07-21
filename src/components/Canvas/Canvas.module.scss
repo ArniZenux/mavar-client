@@ -1,0 +1,36 @@
+.home {
+  &__wrapper {
+    padding: 0 1rem;
+    width: 1000px;
+    margin: 0 auto; 
+  }
+  
+  &__p{
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 200;
+  }
+
+  &__main {
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+  }
+
+  &__footer {
+    padding: 1rem;
+    border-top: 1px solid #333;
+    min-width: 100vh;
+    align-items: center;
+  }
+}
+
+ul {
+  list-style: none;
+}
+  
+li {
+  display: inline-block;
+  margin-right: 4rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+} 

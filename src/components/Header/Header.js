@@ -60,6 +60,7 @@ export function Header() {
                       <li><NavLink onClick={toggleClass} activeClassName='is-active' to={`/verkefni`}> Bæta verkefni </NavLink> </li>
                       <li><NavLink onClick={toggleClass} activeClassName='is-active' to={`/updateverkefni`}> Breyta verkefni </NavLink> </li>
                       <li><NavLink onClick={toggleClass} activeClassName='is-active' to={`/deleteverkefni`}> Eyða verkefni </NavLink> </li>
+                      <li><NavLink onClick={toggleClass} activeClassName='is-active' to={`/stadaverkefni`}> Staða verkefna </NavLink> </li>
                     </ul>
                   </li>
                 </ul>

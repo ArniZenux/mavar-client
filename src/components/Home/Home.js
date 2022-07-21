@@ -9,12 +9,6 @@ export function Home() {
   const [APIData, setData] = useState([]);
 
   useEffect(() => {
-    /*axios.get(apiUrl + `/tulkur`)
-      .then((response) => {
-        setData(response.data);
-      });
-    */
-
       async function fetchData(){
       setLoading(true); 
       setError(null); 

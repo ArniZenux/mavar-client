@@ -19,6 +19,8 @@ import { Verkefniupdate } from './pages/updateVerkefni';
 import { VerkefniUpdatepage } from './pages/updatePageVerkefni';
 import { Verkefnidelete } from './pages/deleteVerkefni';
 
+import { Canvas } from './pages/canvas';  
+
 import { NotFound } from './pages/404';
         
 function App() {
@@ -42,7 +44,9 @@ function App() {
         <Route exact path="/updatePageVerkefni/:id" children={ <VerkefniUpdatepage /> } />
         <Route exact path="/deleteverkefni/"> <Verkefnidelete /> </Route>
         <Route exact path="/project/delverkefniprofa" /> 
-                
+        
+        <Route exact path="/stadaverkefni/"> <Canvas /> </Route>
+        
         <Route path="*">
           <NotFound />
         </Route>
