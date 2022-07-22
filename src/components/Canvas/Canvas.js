@@ -10,12 +10,15 @@ export function StadaVerkefni() {
   const [loading, setLoading] = useState(false); 
   const [error, setError] = useState(null);
   const [APIData, setData] = useState([]);
+
+  let buinn = false; 
+
   let dataPoints = [];
   let counter_atvinnumal = 0;
   let counter_skolamal = 0;  
   let counter_doctor = 0;  
   let counter_almennt = 0; 
-
+  
   const options = {
     animationEnabled: true,
     exportEnabled: true,
@@ -46,7 +49,6 @@ export function StadaVerkefni() {
         }
         
         json = await result.json();
-        //console.log(json); 
       } 
       catch(e){
         console.warn('unable to fetch data', e); 
@@ -60,7 +62,6 @@ export function StadaVerkefni() {
     }
       
     fetchData(); 
-
   }, []);
     
   if(error){
@@ -73,31 +74,38 @@ export function StadaVerkefni() {
   }
 
   if(loading){
-    <div className={CC.home__wrapper}>
-       <p className={CC.home__p}> Staða vettvangsverkefna </p>
-       <p className={CC.home__p}> Sæki gögn... </p>
-    </div>
+    return (
+      <div className={CC.home__wrapper}>
+        <p className={CC.home__p}> Staða vettvangsverkefna </p>
+        <p className={CC.home__p}> Sæki gögn... </p>
+      </div>
+    )
   }
 
   if(APIData.length !== 0){
     APIData.map((id) => {
       if(id.vettvangur === 'Atvinnumál') {
         counter_atvinnumal++;
-        dataPoints.push({ y: counter_atvinnumal, label: 'Atvinnumál' })
       }
       else if (id.vettvangur === 'Skólamál') {
         counter_skolamal++;
-        dataPoints.push({ y: counter_skolamal, label: 'Skólamál' })
       }
       else if (id.vettvangur === 'Almennt') {
         counter_almennt++;
-        dataPoints.push({ y: counter_almennt, label: 'Almennt' })
       }
       else if(id.vettvangur === 'Læknamál') {
         counter_doctor++;
-        dataPoints.push({ y: counter_doctor, label : 'Læknamál' })
       }
     })
+
+    buinn = true; 
+  }
+
+  if(buinn){
+    dataPoints.push({ y: counter_atvinnumal, label: 'Atvinnumál' })
+    dataPoints.push({ y: counter_skolamal, label: 'Skólamál' })
+    dataPoints.push({ y: counter_almennt, label: 'Almennt' })
+    dataPoints.push({ y: counter_doctor, label: 'Læknamál' })
   }
   
   return(
