@@ -12,22 +12,33 @@ export function Login() {
   
   const onUsernameChange = e => setUserName(e.target.value); 
   const onPasswordChange = e => setPassWord(e.target.value); 
+  
+  let success = true; 
 
   const onSubmit = async (e) => {
+    console.log(username);
+    console.log(password); 
+
+    const data = { username, password };
+    console.log(data); 
         
-    /*const requestOptions = {
+    const requestOptions = {
       method: 'POST',
       headers: {"Content-Type": "application/json" },
       body: JSON.stringify(data)
     };
-    success = await fetch(apiUrl + '/tulkur/adduser', requestOptions);
-    
+
+    success = await fetch(apiUrl + '/login', requestOptions);
+    console.log(apiUrl + '/login');
     if(success){
-      history.push('/tulkur');
+      //history.push('/tulkur');
+      console.log("admin-bord - velcome")
+      console.log(username);
+      console.log(password); 
     }
     else{
-      console.log("Virkar ekki");
-    }*/
+      console.log("Ekki virkar - Virkar ekki");
+    }
   }
  
   return (
